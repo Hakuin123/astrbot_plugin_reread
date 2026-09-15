@@ -82,6 +82,12 @@
                     "step": 1
                 },
                 "default": 90
+            },
+            "quote": {
+                "description": "引用复读消息",
+                "hint": "跟随复读时是否引用（回复）被复读的那条消息",
+                "type": "bool",
+                "default": false
             }
         }
     },

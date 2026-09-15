@@ -37,6 +37,7 @@ _✨ 复读插件 ✨_
 - `thresholds`：各消息类型的复读阈值  
 - `reread_prob`：达到阈值后的总响应概率  
 - `follow.weight`：跟随复读权重  
+- `follow.quote`：跟随复读时是否引用被复读的消息  
 - `interrupt.weight` / `interrupt.text`：打断动作权重与打断文本  
 - `ban.weight` / `ban.duration` / `ban.prompt`：禁言动作权重、时长与提示词  
 - `need_different`：是否要求来自不同用户  

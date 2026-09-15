@@ -1,7 +1,7 @@
 from astrbot.api.event import filter
 from astrbot.api.star import Context, Star
 from astrbot.core import AstrBotConfig
-from astrbot.core.message.components import Plain
+from astrbot.core.message.components import Plain, Reply
 from astrbot.core.platform import AstrMessageEvent
 from astrbot.core.star.filter.event_message_type import EventMessageType
 
@@ -58,6 +58,15 @@ class RereadPlugin(Star):
             return
 
         if not plan.output_segment:
+            return
+
+        if plan.action == "follow":
+            chain = [plan.output_segment]
+            if self.cfg.follow.quote:
+                message_id = getattr(event.message_obj, "message_id", None)
+                if message_id:
+                    chain.insert(0, Reply(id=message_id))
+            await event.send(event.chain_result(chain))
             return
 
         yield event.chain_result([plan.output_segment])

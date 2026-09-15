@@ -59,6 +59,7 @@ class ConfigNode:
 
 class FollowConfig(ConfigNode):
     weight: int
+    quote: bool
 
 
 class InterruptConfig(ConfigNode):
